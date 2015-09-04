@@ -2,3 +2,7 @@
 .cache
 .project
 .settings/
+bin/
+project/project/*
+project/target/*
+target/*
