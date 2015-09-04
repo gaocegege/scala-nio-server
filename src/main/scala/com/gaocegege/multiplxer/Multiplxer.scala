@@ -6,5 +6,6 @@ package com.gaocegege.multiplxer
  */
 abstract class Multiplxer {
 
+  /** select/poll/epoll/kqueue function */
   def ioPoll: Int
 }

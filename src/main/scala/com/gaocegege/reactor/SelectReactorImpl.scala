@@ -13,10 +13,18 @@ import com.gaocegege.handler.SelectHandler
 import scala.collection.JavaConversions
 import java.nio.channels.SelectableChannel
 
+/**
+ * Reactor Implementation for select
+ * @author gaocegege
+ */
 class SelectReactorImpl(_timeOut: Long) extends SelectReactor {
 
   val selectorMultiplxer: SelectorMultiplxer = new SelectorMultiplxer(Selector.open(), _timeOut)
 
+  /**
+   * register the handle function for a specific selectableChannel
+   * use the register(), attach the callback function to the channel
+   */
   @Override
   def registerHandler(socket: SelectableChannel, eventType: Int, callback: () => Unit) = {
     println("Register channel...")
@@ -24,6 +32,7 @@ class SelectReactorImpl(_timeOut: Long) extends SelectReactor {
     socket.register(selectorMultiplxer.getSelector, eventType, callback)
   }
 
+  /** event loop */
   @Override
   def handleEvents = {
     println("reactor working...")
@@ -32,6 +41,7 @@ class SelectReactorImpl(_timeOut: Long) extends SelectReactor {
     }
   }
 
+  /** IO multiplexer */
   def run() = {
     println("Waiting for select...")
     val selector = selectorMultiplxer.getSelector

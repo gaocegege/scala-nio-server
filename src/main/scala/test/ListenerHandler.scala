@@ -8,6 +8,10 @@ import java.nio.channels.SelectableChannel
 import com.gaocegege.reactor.SelectReactor
 import java.nio.channels.SelectionKey
 
+/**
+ * Listen Socket Handler
+ * @author gaocegege
+ */
 class ListenerHandler(reactor: SelectReactor, hostAddr: InetAddress, port: Int) extends SelectHandler {
   val serverChannel = ServerSocketChannel.open()
   serverChannel.configureBlocking(false);

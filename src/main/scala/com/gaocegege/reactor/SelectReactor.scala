@@ -13,5 +13,6 @@ abstract class SelectReactor extends Reactor {
   def registerHandler(socket: SelectableChannel, eventType: Int, callback: () => Unit)
 
   /** remove the handler to the reactor */
+  // TODO find a way to remove handler
   //  def removeHandler(handle: SelectableChannel)
 }

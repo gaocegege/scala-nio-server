@@ -9,7 +9,7 @@ import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 
 /**
- * ConncetionHandler class
+ * Connected Socket Handler
  * @author gaocegege
  */
 class RequestHandler(reactor: SelectReactor, serverSocketChannel: ServerSocketChannel) extends SelectHandler {
